@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/stretchr/testify/assert"
-	"log"
 	"testing"
 )
 
@@ -87,7 +86,6 @@ func TestNewFstabEntry(t *testing.T) {
 
 		for _, ent := range invalidEntries {
 			fsEntry := NewFstabEntry(ent.Device, ent.MountPoint, ent.FileSystemType, ent.Options, ent.BackupOperation, ent.FileSystemCheckOrder)
-			log.Println(fsEntry.MountPoint, fsEntry.FileSystemType)
 			assert.False(t, fsEntry.IsMountPointValid())
 			assert.False(t, fsEntry.IsFileSystemTypeValid())
 			assert.False(t, fsEntry.IsBackupOperationValid())
